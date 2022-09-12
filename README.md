@@ -7,6 +7,7 @@ This repository provide code for SCAN-seq2 data processing and downstream analys
 
 - Demultiplexing and raw read processing:
 ```mermaid
+%%{init: {"theme": "default", 'themeVariables': { "fontSize": "30px","fontFamily": "Arial"}}}%%
 graph LR
 raw("Raw Reads</br>(84,801,426)"):::merge --nanoplexer--> demult("demultiplexed Reads</br>74,861 per cell"):::sc --NanoFilt<br/>Pychopper<br/>cutadapt--> QC(QC reads</br>66,606 per cell):::sc --minimap2<br/>UMI-tools dedup--> 
 dedup(deduped reads</br>43,480 per cell):::sc
@@ -42,6 +43,7 @@ classDef down fill:#b3de69,stroke:#000000;
 ```
 Legend:
 ```mermaid
+%%{init: {"theme": "default", 'themeVariables': { "fontSize": "30px","fontFamily": "Arial"}}}%%
 graph TD
 
 sc("Single-cell level"):::sc
