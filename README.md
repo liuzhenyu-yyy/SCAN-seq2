@@ -3,7 +3,7 @@ SCAN-seq2  is a high-throughput, high sensitivity full-length single-cell RNA-se
 
 This repository provide code for SCAN-seq2 data processing and downstream analysis.
 
-# Flowchart for SCAN-seq2 data processing:
+## Pipelines for SCAN-seq2 data processing
 
 - Demultiplexing and raw read processing:
 ```mermaid
