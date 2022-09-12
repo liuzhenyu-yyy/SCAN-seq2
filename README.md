@@ -6,9 +6,18 @@ This repository provide code for SCAN-seq2 data processing and downstream analys
 # Flowchart for SCAN-seq2 data processing:
 
 - Demultiplexing and raw read processing:
-
 ```mermaid
-%%{init: {"theme": "base", 'themeVariables': { "fontSize": "30px","fontFamily": "Arial"}}}%%
+graph LR
+raw("Raw Reads</br>(84,801,426)"):::merge --nanoplexer--> demult("demultiplexed Reads</br>74,861 per cell"):::sc --NanoFilt<br/>Pychopper<br/>cutadapt--> QC(QC reads</br>66,606 per cell):::sc --minimap2<br/>UMI-tools dedup--> 
+dedup(deduped reads</br>43,480 per cell):::sc
+
+classDef merge fill:#bebada,stroke:#000000;
+classDef sc fill:#8dd3c7,stroke:#000000;
+```
+
+- Transcriptome assembly and quantification
+```mermaid
+%%{init: {"theme": "default", 'themeVariables': { "fontSize": "30px","fontFamily": "Arial"}}}%%
 graph TD
 dedup("Deduped reads</br>43,480 per cell</br>(fastq)"):::sc
 subgraph Transcriptome Mapping
@@ -29,5 +38,19 @@ end
 classDef merge fill:#bebada,stroke:#000000;
 classDef cl fill:#fb8072,stroke:#000000;
 classDef sc fill:#8dd3c7,stroke:#00000;
+classDef down fill:#b3de69,stroke:#000000;
+```
+Legend:
+```mermaid
+graph TD
+
+sc("Single-cell level"):::sc
+cl("cell-line level"):::cl
+merged("all cells merged"):::merge
+down("Dowstream analysis"):::down
+
+classDef merge fill:#bebada,stroke:#000000;
+classDef cl fill:#fb8072,stroke:#000000;
+classDef sc fill:#8dd3c7,stroke:#000000;
 classDef down fill:#b3de69,stroke:#000000;
 ```
