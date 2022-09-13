@@ -42,6 +42,7 @@ classDef sc fill:#8dd3c7,stroke:#00000;
 classDef down fill:#b3de69,stroke:#000000;
 ```
 - VDJ recombination of TCR and BCR:
+```mermaid
 %%{init: {"theme": "base", 'themeVariables': { "fontSize": "30px","fontFamily": "Arial"}}}%%
 graph TD
 
@@ -65,6 +66,7 @@ classDef merge fill:#bebada,stroke:#000000;
 classDef cl fill:#fb8072,stroke:#000000;
 classDef sc fill:#8dd3c7,stroke:#00000;
 classDef down fill:#b3de69,stroke:#000000;
+```
 
 Legend:
 ```mermaid
