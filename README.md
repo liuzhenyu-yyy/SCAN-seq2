@@ -50,12 +50,12 @@ Align_Genome("Genome alignments</br>(bam)"):::sc -- samtools --> reads("IGH/IGL/
 large_clustrer --> Other("Other reads"):::sc
 
 subgraph Main 
-centroid  --racon--> pol1(Polished sequence I):::sc
-pol1 -. 4 rounds of racon..->pol4(Polished sequence Iv):::sc -- Medaka --> con("Consensus sequence</br>(fasta)"):::sc
+centroid  --racon---> pol1(Polished sequence I):::sc
+pol1 -.4 rounds of racon..->pol4(Polished sequence Iv):::sc -- Medaka ----> con("Consensus sequence</br>(fasta)"):::sc
 end
 
 subgraph Other reads
-Other --racon--> pol1
+Other --racon---> pol1
 Other -. 4 rounds of racon.->pol4
 Other -- Medaka --> con("Consensus sequence</br>(fasta)")
 end
