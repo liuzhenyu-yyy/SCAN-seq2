@@ -42,16 +42,15 @@ classDef sc fill:#8dd3c7,stroke:#00000;
 classDef down fill:#b3de69,stroke:#000000;
 ```
 - VDJ recombination of TCR and BCR:
-```mermaid
-%%{init: {"theme": "default", 'themeVariables': { "fontSize": "30px","fontFamily": "Arial"}}}%%
+%%{init: {"theme": "base", 'themeVariables': { "fontSize": "30px","fontFamily": "Arial"}}}%%
 graph TD
 
-Align_Genome("Genome alignments</br>(bam)") -- samtools --> reads("IGH/IGL/IGK/TRA/TRB reads<br/>(fastq)") --usearch--> cluster("Reads clusters</br>(cluster fastq)")--> large_clustrer("Largest cluster</br>(fastq)")--centroid--> centroid("centroid reads")
-large_clustrer --> Other("Other reads")
+Align_Genome("Genome alignments</br>(bam)"):::sc -- samtools --> reads("IGH/IGL/IGK/TRA/TRB reads<br/>(fastq)"):::sc --usearch--> cluster("Reads clusters</br>(cluster fastq)"):::sc--> large_clustrer("Largest cluster</br>(fastq)"):::sc--centroid--> centroid("centroid reads"):::sc
+large_clustrer --> Other("Other reads"):::sc
 
 subgraph Main 
-centroid  --racon--> pol1(Polished sequence I)
-pol1 -. 4 rounds of racon.->pol4(Polished sequence IV) -- Medaka --> con("Consensus sequence</br>(fasta)")
+centroid  --racon--> pol1(Polished sequence I):::sc
+pol1 -. 4 rounds of racon.->pol4(Polished sequence Iv):::sc -- Medaka --> con("Consensus sequence</br>(fasta)"):::sc
 end
 
 subgraph Other reads
@@ -60,13 +59,12 @@ Other -. 4 rounds of racon.->pol4
 Other -- Medaka --> con("Consensus sequence</br>(fasta)")
 end
 
-con --IgBlast--> VDJ("V(D)J calls</br>(tsv)")
+con --IgBlast--> VDJ("V(D)J calls</br>(tsv)"):::sc
 
 classDef merge fill:#bebada,stroke:#000000;
 classDef cl fill:#fb8072,stroke:#000000;
 classDef sc fill:#8dd3c7,stroke:#00000;
 classDef down fill:#b3de69,stroke:#000000;
-```
 
 Legend:
 ```mermaid
