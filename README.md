@@ -47,7 +47,7 @@ classDef down fill:#b3de69,stroke:#000000;
 graph TD
 
 Align_Genome("Genome alignments</br>(bam)"):::sc -- samtools --> reads("IGH/IGL/IGK/TRA/TRB reads<br/>(fastq)"):::sc --usearch--> cluster("Reads clusters</br>(cluster fastq)"):::sc--> large_clustrer("Largest cluster</br>(fastq)"):::sc--centroid--> centroid("centroid reads"):::sc
-large_clustrer --> Other("Other reads"):::sc
+large_clustrer --> Other("Other reads in the same cluster"):::sc
 
 subgraph Main 
 centroid  --racon---> pol1(Polished sequence I):::sc
