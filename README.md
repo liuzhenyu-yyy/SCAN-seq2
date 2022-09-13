@@ -51,12 +51,12 @@ large_clustrer --> Other("Other reads in the same cluster"):::sc
 
 subgraph Main 
 centroid  --racon---> pol1(Polished sequence I):::sc
-pol1 -.4 rounds of racon..->pol4(Polished sequence Iv):::sc -- Medaka ----> con("Consensus sequence</br>(fasta)"):::sc
+pol1 -.another 3 rounds of racon..->pol4(Polished sequence Iv):::sc -- Medaka ----> con("Consensus sequence</br>(fasta)"):::sc
 end
 
 subgraph Other reads
 Other --racon---> pol1
-Other -. 4 rounds of racon.->pol4
+Other -. another 3 rounds of racon.->pol4
 Other -- Medaka --> con("Consensus sequence</br>(fasta)")
 end
 
