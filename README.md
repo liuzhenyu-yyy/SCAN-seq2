@@ -43,7 +43,7 @@ classDef down fill:#b3de69,stroke:#000000;
 ```
 - VDJ recombination of TCR and BCR:
 ```mermaid
-%%{init: {"theme": "base", 'themeVariables': { "fontSize": "30px","fontFamily": "Arial"}}}%%
+%%{init: {"theme": "default", 'themeVariables': { "fontSize": "30px","fontFamily": "Arial"}}}%%
 graph TD
 
 Align_Genome("Genome alignments</br>(bam)") -- samtools --> reads("IGH/IGL/IGK/TRA/TRB reads<br/>(fastq)") --usearch--> cluster("Reads clusters</br>(cluster fastq)")--> large_clustrer("Largest cluster</br>(fastq)")--centroid--> centroid("centroid reads")
