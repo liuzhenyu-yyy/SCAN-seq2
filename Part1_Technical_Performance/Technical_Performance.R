@@ -40,6 +40,19 @@ sample.info.200$Cell_Line <- factor(sample.info.200$Cell_Line,
                                     levels = c("GM12878","HepG2","Hela","H9","K562","293T",
                                                "AtT20","MEF","3T3"))
 
+sample.info.9Mix2 <- read.table("../../archive/20211026_1/sample.info.txt")
+sample.info.9Mix2 <- sample.info.9Mix2[sample.info.9Mix2$Pass_QC == 1,]
+sample.info.9Mix2$Cell_Line <- factor(sample.info.9Mix2$Cell_Line,
+                                    levels = c("GM12878","HepG2","Hela","H9","K562","293T",
+                                               "AtT20","MEF","3T3"))
+sample.info.9Mix2$Library <- "9CL_Mix2"
+sample.info.9Mix3 <- read.table("../../archive/20210904/sample.info.txt")
+sample.info.9Mix3 <- sample.info.9Mix3[sample.info.9Mix3$Pass_QC == 1,]
+sample.info.9Mix3$Cell_Line <- factor(sample.info.9Mix3$Cell_Line,
+                                      levels = c("GM12878","HepG2","Hela","H9","K562","293T",
+                                                 "AtT20","MEF","3T3"))
+sample.info.9Mix3$Library <- "9CL_Mix3"
+
 # color for cell lines
 color.cell <- brewer.pal(11,"Set3")[c(1:8,10)]
 names(color.cell) <- c("GM12878","HepG2","Hela","H9","K562","293T",
@@ -76,6 +89,8 @@ sample.info.9Mix <- sample.info.9Mix[sample.info.9Mix$Pass_QC == 1, ]
 sample.info.4CL <- sample.info.4CL[sample.info.4CL$Pass_QC == 1, ]
 sample.info.100 <- sample.info.100[sample.info.100$Pass_QC == 1, ]
 sample.info.200 <- sample.info.200[sample.info.200$Pass_QC == 1, ]
+sample.info.9Mix2 <- sample.info.9Mix2[sample.info.9Mix2$Pass_QC == 1, ]
+sample.info.9Mix3 <- sample.info.9Mix3[sample.info.9Mix3$Pass_QC == 1, ]
 
 # 2. Sensitivity ----------------------------------------------------------
 dir.create("Sensitivity")
@@ -369,6 +384,7 @@ ggplot(plot.data)+
   theme_classic()+
   coord_equal(1)
 dev.off()
+saveRDS(plot.data, "NGS_Correlation.rds")
 
 # heatmap for correlation
 rc_cmp <- cbind(rc_SCAN2,rc_Smart3, uc_Smart3)
@@ -417,12 +433,23 @@ sample.info.merge <- rbind(sample.info.100,
 sample.info.merge$Library <- factor(sample.info.merge$Library,
                                     levels = c("UMI_100","UMI_200",
                                                "9CL","9CL_Mix","4CL"))
+sample.info.merge <- rbind(sample.info.100,
+                           sample.info.200,
+                           sample.info.4CL,
+                           sample.info.9CL,
+                           sample.info.9Mix,
+                           sample.info.9Mix2[,colnames(sample.info.9Mix)],
+                           sample.info.9Mix3[,colnames(sample.info.9Mix)])
+sample.info.merge$Library <- factor(sample.info.merge$Library,
+                                    levels = c("UMI_100","UMI_200",
+                                               "9CL","9CL_Mix","9CL_Mix2","9CL_Mix3","4CL"))
+
 pdf("Quantification/Box.Cor.ERCC.UMI.2.pdf",3.2,3)
 ggplot(sample.info.merge)+
   geom_boxplot(aes(x=Library, y=cor_ERCC_rc, fill = Library),outlier.size = 0.3)+
   theme_classic()+
   theme(axis.text.x = element_text(angle = 90,hjust = 1,vjust = 0.5))+
-  scale_fill_manual(values = brewer.pal(5, "Set2"))+
+  scale_fill_manual(values = brewer.pal(7, "Set2"))+
   ylab("Correlation Coefficient (r)")
 dev.off()
 
@@ -590,7 +617,7 @@ obj.combined <- NormalizeData(obj.combined)
 obj.combined <- ScaleData(obj.combined,
                      features =  protien.info.hg38[protien.info.hg38$`Gene name`%in%obj.combined@assays$Gene@var.features,]$`Transcript name`)
 
-PTPRC.iso <- grep("PTPRC-",rownames(rc_trans_9CL), value = T) # 17 isoform
+PTPRC.iso <- grep("PTPRC-",rownames(obj.combined), value = T) # 17 isoform
 PTPRC.iso <- PTPRC.iso[trans.info.hg38[PTPRC.iso,]$`Transcript type`=="protein_coding"]
 length(PTPRC.iso)  # 10 coding
 
