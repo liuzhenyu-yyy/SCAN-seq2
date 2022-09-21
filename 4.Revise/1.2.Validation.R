@@ -105,7 +105,7 @@ write.table(bulk.express[gene.selcted,],"pseudogene.selected.tsv", sep = "\t")
 gene.selected <- pseudogenes$`Gene name`[pseudogenes$`Gene name` %in% rownames(bulk.express)
                                          & pseudogenes$Parent %in% rownames(bulk.express)]
 
-## 2.1. GM12878
+## 2.1. GM12878 -----
 pseudogenes.GM <- pseudogenes[pseudogenes$`Gene name` %in% gene.selected,]
 rownames(pseudogenes.GM) <- pseudogenes.GM$`Gene name`
 pseudogenes.GM$Expressed_pgene <- NULL
@@ -120,7 +120,7 @@ pseudogenes.GM$log2_fc <- log2((pseudogenes.GM$Expression_pgene + 0.01) /
 write.table(pseudogenes.GM, "pseudogenes.GM12878.tsv", sep = "\t",
           row.names = F, col.names = T, quote = F)
 
-## 2.2. H9
+## 2.2. H9 ------
 pseudogenes.H9 <- pseudogenes[pseudogenes$`Gene name` %in% gene.selected,]
 rownames(pseudogenes.H9) <- pseudogenes.H9$`Gene name`
 pseudogenes.H9$Expressed_pgene <- NULL
