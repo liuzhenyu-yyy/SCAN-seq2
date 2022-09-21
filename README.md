@@ -19,6 +19,7 @@ Structure of the repository:
 │       ├── MergeAssembly.all.sh ## Merge cell-line assemblies
 │       ├── MergeAssembly.sh     ## Merge single-cell assemblies
 │       └── Sbatch.MergeAssembly.sh
+│
 ├── 2.Dowstream_Library # R code for downstream analyis of each SCAN-seq library
 │   ├── 9CL.R      ## 9CL library
 │   ├── 4CL.R      ## 4CL library
@@ -26,6 +27,7 @@ Structure of the repository:
 │   ├── UMI_100.R  ## UMI_100 library
 │   ├── UMI_200.R  ## UMI_200 library
 │   └── IGG.R      ## IGG6, IGG24 and IGG48 library
+│
 ├── 3.Downstream_Merge # R code for downstream analysis 
 │   ├── Part1_Technical_Performance 
 │   │   ├── Technical_Performance.R  ## Technical performance of SCAN-seq2
@@ -97,12 +99,12 @@ large_clustrer --> Other("Other reads in the same cluster"):::sc
 
 subgraph Main 
 centroid  --racon---> pol1(Polished sequence I):::sc
-pol1 -.another 3 rounds of racon..->pol4(Polished sequence IV):::sc -- Medaka ----> con("Consensus sequence</br>(fasta)"):::sc
+pol1 --another 3 rounds of racon--->pol4(Polished sequence IV):::sc -- Medaka ----> con("Consensus sequence</br>(fasta)"):::sc
 end
 
 subgraph Other reads
 Other --racon---> pol1
-Other -. another 3 rounds of racon.->pol4
+Other -- another 3 rounds of racon-->pol4
 Other -- Medaka --> con("Consensus sequence</br>(fasta)")
 end
 
