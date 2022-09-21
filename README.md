@@ -1,7 +1,7 @@
 # SCAN-seq2
-SCAN-seq2  is a high-throughput, high sensitivity full-length single-cell RNA-seq method by third-generation sequencing. 
+SCAN-seq2  is a high-throughput, high sensitivity full-length single-cell RNA-seq method by Nanopore sequencing. 
 
-This repository provide code for SCAN-seq2 data processing and downstream analysis.
+This repository provide source code for SCAN-seq2 data processing and downstream analysis.
 
 Structure of the repository: 
 
@@ -48,13 +48,11 @@ Structure of the repository:
 └── README.md
 ```
 
-
-
 ## Pipelines for SCAN-seq2 data processing
 
-- Demultiplexing and raw read processing:
+### Demultiplexing and raw read processing:
 ```mermaid
-%%{init: {"theme": "default", 'themeVariables': { "fontSize": "30px","fontFamily": "Arial"}}}%%
+%%{init: {"theme": "neutral", 'themeVariables': { "fontSize": "30px","fontFamily": "Arial"}}}%%
 graph LR
 raw("Raw reads</br>(84,801,426)"):::merge --nanoplexer--> demult("Demultiplexed reads</br>74,861 per cell"):::sc --NanoFilt<br/>Pychopper<br/>cutadapt--> QC(QC reads</br>66,606 per cell):::sc --minimap2<br/>UMI-tools dedup--> 
 dedup(deduped reads</br>43,480 per cell):::sc
@@ -63,9 +61,9 @@ classDef merge fill:#bebada,stroke:#000000;
 classDef sc fill:#8dd3c7,stroke:#000000;
 ```
 
-- Transcriptome assembly and quantification:
+### Transcriptome assembly and quantification:
 ```mermaid
-%%{init: {"theme": "default", 'themeVariables': { "fontSize": "30px","fontFamily": "Arial"}}}%%
+%%{init: {"theme": "neutral", 'themeVariables': { "fontSize": "30px","fontFamily": "Arial"}}}%%
 graph TD
 dedup("Deduped reads</br>43,480 per cell</br>(fastq)"):::sc
 subgraph Transcriptome Mapping
@@ -88,9 +86,10 @@ classDef cl fill:#fb8072,stroke:#000000;
 classDef sc fill:#8dd3c7,stroke:#00000;
 classDef down fill:#b3de69,stroke:#000000;
 ```
-- Immune repertoire profiling:
+
+### Immune repertoire profiling:
 ```mermaid
-%%{init: {"theme": "default", 'themeVariables': { "fontSize": "30px","fontFamily": "Arial"}}}%%
+%%{init: {"theme": "neutral", 'themeVariables': { "fontSize": "30px","fontFamily": "Arial"}}}%%
 graph TD
 
 Align_Genome("Genome alignments</br>(bam)"):::sc -- samtools --> reads("IGH/IGL/IGK/TRA/TRB reads<br/>(fastq)"):::sc --usearch--> cluster("Reads clusters</br>(cluster fastq)"):::sc--> large_clustrer("Largest cluster</br>(fastq)"):::sc--centroid--> centroid("centroid reads"):::sc
