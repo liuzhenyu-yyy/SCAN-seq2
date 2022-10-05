@@ -45,8 +45,9 @@ Structure of the repository:
 │   │   ├── merge_human_6CL.SQANTI3_classification.filtered_lite_SQANTI3_report.pdf
 │   │   ├── merge_mouse_3CL.SQANTI3_SQANTI3_report.pdf
 │   │   └── merge_mouse_3CL.SQANTI3_classification.filtered_lite_SQANTI3_report.pdf
-│   └── Part3_Isoginkgetin_Treatment
-│       └── IGGTreatment.R           ## IGG treatment of Hela and HepG2 cell lines1
+│   ├── Part3_Isoginkgetin_Treatment
+│   │   └── IGGTreatment.R           ## IGG treatment of Hela and HepG2 cell lines1
+│   └── Part4_Revise                 ## additional code during manuscript revision
 │
 └── README.md
 ```
