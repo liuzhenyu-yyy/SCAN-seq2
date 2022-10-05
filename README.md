@@ -20,7 +20,7 @@ Structure of the repository:
 │       ├── MergeAssembly.sh     ## Merge single-cell assemblies
 │       └── Sbatch.MergeAssembly.sh
 │
-├── 2.Dowstream_Library # R code for downstream analyis of each SCAN-seq library
+├── 2.Dowstream_Library # Downstream analyis of each separate SCAN-seq library
 │   ├── 9CL.R      ## 9CL library
 │   ├── 4CL.R      ## 4CL library
 │   ├── 9CL_Mix.R  ## 9CL_Mix library
@@ -28,7 +28,7 @@ Structure of the repository:
 │   ├── UMI_200.R  ## UMI_200 library
 │   └── IGG.R      ## IGG6, IGG24 and IGG48 library
 │
-├── 3.Downstream_Merge # R code for downstream analysis 
+├── 3.Downstream_Merge # Downstream analysis of all libraries
 │   ├── Part1_Technical_Performance 
 │   │   ├── Technical_Performance.R  ## Technical performance of SCAN-seq2
 │   │   └── Pseudogene.R             ## Systematic evaluation of pseudogene expression
@@ -46,7 +46,8 @@ Structure of the repository:
 │   │   ├── merge_mouse_3CL.SQANTI3_SQANTI3_report.pdf
 │   │   └── merge_mouse_3CL.SQANTI3_classification.filtered_lite_SQANTI3_report.pdf
 │   └── Part3_Isoginkgetin_Treatment
-│       └── IGGTreatment.R           ## IGG treatment of Hela and HepG2 cell lines
+│       └── IGGTreatment.R           ## IGG treatment of Hela and HepG2 cell lines1
+│
 └── README.md
 ```
 
