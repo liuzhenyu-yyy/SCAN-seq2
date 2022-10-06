@@ -7,7 +7,7 @@ Structure of the repository:
 
 ```bash
 .
-├── 1.Pipeline # bash script of SCAN-seq2 data processing
+├── 1.1.Data_Processing # Pipeline for SCAN-seq2 data processing
 │   ├── S01.umi.demultiplex.sh  ## Demultiplex ONT reads
 │   ├── S02.umi.process.one.sh  ## QC, deduplication and trancriptome quantification
 │   ├── S03.umi.Summarize.sh    ## Summarize statistics, merge UMI count matrix
@@ -20,7 +20,7 @@ Structure of the repository:
 │       ├── MergeAssembly.sh     ## Merge single-cell assemblies
 │       └── Sbatch.MergeAssembly.sh
 │
-├── 2.Dowstream_Library # Downstream analyis of each separate SCAN-seq library
+├── 2.Dowstream_Libraries # Downstream analyis of each separate SCAN-seq library
 │   ├── 9CL.R      ## 9CL library
 │   ├── 4CL.R      ## 4CL library
 │   ├── 9CL_Mix.R  ## 9CL_Mix library
