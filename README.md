@@ -7,7 +7,7 @@ Structure of the repository:
 
 ```bash
 .
-├── 1.1.Data_Processing # Pipeline for SCAN-seq2 data processing
+├── 1.Data_Processing # Pipeline for SCAN-seq2 data processing
 │   ├── S01.umi.demultiplex.sh  ## Demultiplex ONT reads
 │   ├── S02.umi.process.one.sh  ## QC, deduplication and trancriptome quantification
 │   ├── S03.umi.Summarize.sh    ## Summarize statistics, merge UMI count matrix
