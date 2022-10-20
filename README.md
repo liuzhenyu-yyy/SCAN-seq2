@@ -12,7 +12,7 @@ Structure of the repository:
 │   ├── S02.umi.process.one.sh  ## QC, deduplication and trancriptome quantification
 │   ├── S03.umi.Summarize.sh    ## Summarize statistics, merge UMI count matrix
 │   ├── S04.umi.assemble.one.sh ## Reference-guided trancriptome assemble
-│   ├── S05.umi.VDJ.BCR.one.sh  ## Immune repertoire profiling of immunoglobulin.
+│   ├── S05.umi.VDJ.BCR.one.sh  ## Immune repertoire profiling of immunoglobulin
 │   ├── S05.umi.VDJ.TCR.one.sh  ## Immune repertoire profiling of T cell receptor
 │   ├──merge_counts_tsvs.R      ## Merge UMI count matrix
 │   └──MergeAssembly
@@ -33,8 +33,8 @@ Structure of the repository:
 │   │   ├── Technical_Performance.R  ## Technical performance of SCAN-seq2
 │   │   └── Pseudogene.R             ## Systematic evaluation of pseudogene expression
 │   ├── Part2_Transcriptome_Assembly
-│   │   ├── BCR_TCR_gtf
-│   │   │   ├── Hg38.IGH.gtf
+│   │   ├── BCR_TCR_gtf              ## Annotation for human immunoglobulin and T cell receptor genes
+│   │   │   ├── Hg38.IGH.gtf
 │   │   │   ├── Hg38.IGK.gtf
 │   │   │   ├── Hg38.IGL.gtf
 │   │   │   ├── Hg38.TRA.gtf
