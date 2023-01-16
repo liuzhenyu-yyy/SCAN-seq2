@@ -1,5 +1,9 @@
 # SCAN-seq2
-SCAN-seq2  is a high-throughput, high sensitivity full-length single-cell RNA-seq method by Nanopore sequencing. 
+SCAN-seq2  is a high-throughput, high sensitivity full-length single-cell RNA-seq method by Nanopore sequencing.  
+
+For more detail about SCAN-seq2, please check our [publication](https://www.nature.com/articles/s41421-022-00500-4):
+
+> Liao, Y., Liu, Z., Zhang, Y. *et al.* High-throughput and high-sensitivity full-length single-cell RNA-seq analysis on third-generation sequencing platform. *Cell Discov* **9**, 5 (2023). https://doi.org/10.1038/s41421-022-00500-4
 
 This repository provide source code for SCAN-seq2 data processing and downstream analysis.
 
