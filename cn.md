@@ -1,6 +1,6 @@
 ### 数据预处理:
 ```mermaid
-%%{init: {"theme": "neutral", 'themeVariables': { "fontSize": "30px","fontFamily": "SimSun"}}}%%
+%%{init: {"theme": "neutral", 'themeVariables': { "fontSize": "30px","fontFamily": "SimHei"}}}%%
 graph LR
 raw("原始读段</br>(84,801,426)"):::merge --nanoplexer--> demult("拆分后读段</br>74,861 /细胞"):::sc --NanoFilt<br/>Pychopper<br/>cutadapt--> QC(质控后读段</br>66,606 /细胞):::sc --minimap2<br/>UMI-tools dedup--> 
 dedup(去重后读段</br>43,480 /细胞):::sc
@@ -11,7 +11,7 @@ classDef sc fill:#8dd3c7,stroke:#000000;
 
 ### 转录本组装与定量:
 ```mermaid
-%%{init: {"theme": "neutral", 'themeVariables': { "fontSize": "30px","fontFamily": "SimSun"}}}%%
+%%{init: {"theme": "neutral", 'themeVariables': { "fontSize": "30px","fontFamily": "SimHei"}}}%%
 graph TD
 dedup("去重后读段</br>43,480 /细胞</br>(fastq)"):::sc
 subgraph 转录组比对
@@ -37,7 +37,7 @@ classDef down fill:#b3de69,stroke:#000000;
 
 ### 免疫细胞表面受体鉴定
 ```mermaid
-%%{init: {"theme": "neutral", 'themeVariables': { "fontSize": "30px","fontFamily": "SimSun"}}}%%
+%%{init: {"theme": "neutral", 'themeVariables': { "fontSize": "30px","fontFamily": "SimHei"}}}%%
 graph TD
 
 Align_Genome("基因组比对</br>(bam)"):::sc -- samtools --> reads("IGH/IGL/IGK/TRA/TRB 读段<br/>(fastq)"):::sc --usearch--> cluster("读段聚类</br>(cluster fastq)"):::sc--> large_clustrer("最大读段群</br>(fastq)"):::sc--centroid--> centroid("中心读段"):::sc
