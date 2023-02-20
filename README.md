@@ -83,8 +83,8 @@ end
 dedup --minimap2 -ax splice</br>Genome mapping--> Align_Genome
 dedup --minimap2 -ax map-ont</br>Transcripome mapping--> Align_cDNA
 subgraph Downstream Analysis
-sc_Asm_2 --> sc_stat("Statistics of single-cell assemblies</br>Fig.S5a"):::down
-merge_Asm_2 --> merge_stat("Statistics of merged assembly</br>Fig.S5c and Fig.S5e"):::down
+sc_Asm_2 --> sc_stat("Statistics of single-cell assemblies"):::down
+merge_Asm_2 --> merge_stat("Statistics of merged assembly"):::down
 Matrix --> NGS("Compare with NGS methods"):::down
 Matrix --> DR_cluster("Dimensional Reduction,<br/>Clustering"):::down
 Matrix --> DEG("DEG and DTU"):::down
