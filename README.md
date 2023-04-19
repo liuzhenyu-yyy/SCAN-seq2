@@ -53,6 +53,8 @@ Structure of the repository:
 │   │   └── IGGTreatment.R           ## IGG treatment of Hela and HepG2 cell lines1
 │   └── Part4_Revise                 ## Additional code during manuscript revision
 │
+├── primers # Barcode and primer sequences
+│
 └── README.md
 ```
 
