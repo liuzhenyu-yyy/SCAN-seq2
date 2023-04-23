@@ -74,6 +74,7 @@ rm -f ${cell}_full_length_filtered.extract.fastq
 # trim poly-A tail
 $cutadapt -a "A{10}" -e 0.2 -o ${cell}_full_length_trim_ploya.fastq ${cell}_full_length_filtered.fastq
 rm -f ${cell}_full_length_filtered.fastq
+QC_Reads=$(cat ${cell}_full_length_trim_ploya.fastq | grep -c runid)
 
 ########################################################
 # S03. Mapping to cDNA reference and quantification 
@@ -139,7 +140,7 @@ Q10_Reads=$(cat STAT/${cell}_stat.txt | grep Q10 | awk 'BEGIN{IFS='\t'} {print $
 Q10_Percent=$(printf "%.2f" `echo "scale=2;100*${Q10_Reads}/${Raw_Reads}"|bc`)
 Q15_Reads=$(cat STAT/${cell}_stat.txt | grep Q15 | awk 'BEGIN{IFS='\t'} {print $2}')
 Q15_Percent=$(printf "%.2f" `echo "scale=2;100*${Q15_Reads}/${Raw_Reads}"|bc`)
-QC_Reads=$(cat ${cell}_full_length_trim_ploya.fa | grep -c runid)
+
 
 Mapped_Reads=$(samtools view -F2308 -c ${cell}_cdna.sort.bam)
 rm ${cell}_cdna.sort.bam ${cell}_cdna.sort.bam.bai
@@ -151,21 +152,3 @@ echo -e ${cell}'\t'${Raw_Reads}'\t'${Q7_Reads}'\t'${Q7_Percent}'\t'${Q10_Reads}'
 
 mkdir Salmon_Quant
 mv ${cell}_gene_quant.txt ${cell}_trans_quant.txt ${cell}_ReadCount.txt Salmon_Quant
-
-########################################################
-# S05. Mapping to Genome
-########################################################
-
-#$minimap2 -t 4\
-#	 -ax splice\
-#	 -uf -k14\
-#	 --secondary=no\
-#	 ${database_dir}/${ref}/minimap2/*.dna.primary_assembly.mmi \
-#         ${cell}_full_length_trim_ploya.fa	 | \
-#         samtools sort - -o ${cell}_sorted.bam
-
-#samtools index ${cell}_sorted.bam
-#mkdir Genome_Mapping
-#mv ${cell}_sorted.bam ${cell}_sorted.bam.bai Genome_Mapping
-
-#gzip ${cell}_full_length_trim_ploya.fa
