@@ -43,7 +43,7 @@ Structure of the repository:
 │   │   │   ├── Hg38.IGL.gtf
 │   │   │   ├── Hg38.TRA.gtf
 │   │   │   └── Hg38.TRB.gtf
-│   │   ├── ModifGTF.R               ## Modif gtf files for IGV visualization
+│   │   ├── ModifGTF.R               ## Modify gtf files for IGV visualization
 │   │   ├── Transcriptome_Assembly.R ## Analysis of trancriptome assemblies
 │   │   ├── merge_human_6CL.SQANTI3_SQANTI3_report.pdf
 │   │   ├── merge_human_6CL.SQANTI3_classification.filtered_lite_SQANTI3_report.pdf
