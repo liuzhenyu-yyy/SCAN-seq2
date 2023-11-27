@@ -1,7 +1,3 @@
-<style>
-svg[id^="mermaid-"] { min-width: 200px; max-width: 500px; }
-</style>
-
 # SCAN-seq2
 SCAN-seq2  is a high-throughput, high sensitivity full-length single-cell RNA-seq method by Nanopore sequencing.  
 
