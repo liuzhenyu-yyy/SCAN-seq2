@@ -1,13 +1,15 @@
 # SCAN-seq2
-SCAN-seq2  is a high-throughput, high sensitivity full-length single-cell RNA-seq method by Nanopore sequencing.  
 
-For more detail about SCAN-seq2, please check our [publication](https://www.nature.com/articles/s41421-022-00500-4):
+`SCAN-seq2` is a high-throughput, high sensitivity full-length single-cell RNA-seq method with Oxford Nanopore Technology (ONT). Our results proved  SCAN-seq2 as a flexible single-cell full-length RNA-seq methods, with potiential implements in isoform quantification, transcriptome assemble, and Immune repertoire profiling.
 
-> Liao, Y., Liu, Z., Zhang, Y. *et al.* High-throughput and high-sensitivity full-length single-cell RNA-seq analysis on third-generation sequencing platform. *Cell Discov* **9**, 5 (2023). https://doi.org/10.1038/s41421-022-00500-4
+For more detail about `SCAN-seq2`, please check our [publication](https://www.nature.com/articles/s41421-022-00500-4).
+
 
 This repository provide source code for SCAN-seq2 data processing and downstream analysis.
 
-Structure of the repository: 
+## Repository Layout: 
+The repository are structured as followed:
+
 
 ```bash
 .
@@ -60,7 +62,11 @@ Structure of the repository:
 
 ## Pipelines for SCAN-seq2 data processing
 
+We provided schematics for the data processing pipelines of SCAN-seq2:
+
 ### Demultiplexing and raw read processing:
+This step includes identifing barcode sequences in raw ONT reads, trimming adaptors, quality control and deduplication.
+
 ```mermaid
 %%{init: {"theme": "neutral", 'themeVariables': { "fontSize": "30px","fontFamily": "Arial"}}}%%
 graph LR
@@ -72,6 +78,8 @@ classDef sc fill:#8dd3c7,stroke:#000000;
 ```
 
 ### Transcriptome assembly and quantification:
+The main processing step for each single cell, where deduped reads were mapped to transcriptome reference for isoform-level quantification, as well as genome reference for transcriptome assembly. Single-cell assemblies were merged in a hierarchical manner, generating a merged transcriptome assembly.
+
 ```mermaid
 %%{init: {"theme": "neutral", 'themeVariables': { "fontSize": "30px","fontFamily": "Arial"}}}%%
 graph TD
@@ -98,6 +106,8 @@ classDef down fill:#b3de69,stroke:#000000;
 ```
 
 ### Immune repertoire profiling:
+This step generated polished transcript assembly for IGH/IGL/IGK/TRA/TRB transcripts, and identify V(D)J elements for each single cell.
+
 ```mermaid
 %%{init: {"theme": "neutral", 'themeVariables': { "fontSize": "30px","fontFamily": "Arial"}}}%%
 graph TD
@@ -123,3 +133,11 @@ classDef cl fill:#fb8072,stroke:#000000;
 classDef sc fill:#8dd3c7,stroke:#00000;
 classDef down fill:#b3de69,stroke:#000000;
 ```
+
+## Citation 
+Please cite the following article if you use SCAN-seq2 in your research:
+
+> Liao, Y., Liu, Z., Zhang, Y. *et al.* High-throughput and high-sensitivity full-length single-cell RNA-seq analysis on third-generation sequencing platform. *Cell Discov* **9**, 5 (2023). https://doi.org/10.1038/s41421-022-00500-4
+
+## Contact
+If you have any question please write issue for this repository or contact me directly at liuzhenyu@pku.edu.cn.
