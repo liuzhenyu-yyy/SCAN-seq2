@@ -2,6 +2,8 @@
 
 `SCAN-seq2` is a high-throughput, high sensitivity full-length single-cell RNA-seq method with Oxford Nanopore Technology (ONT). Our results proved  SCAN-seq2 as a flexible single-cell full-length RNA-seq methods, with potiential implements in isoform quantification, transcriptome assemble, and Immune repertoire profiling.
 
+![protocol](./Protocol.jpg)
+
 For more detail about `SCAN-seq2`, please check our [publication](https://www.nature.com/articles/s41421-022-00500-4).
 
 
